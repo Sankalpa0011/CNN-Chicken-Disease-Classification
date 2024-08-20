@@ -4,7 +4,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO, format="[%(asctime)s]: %(message)s:")
 
-project_name = "cnnClassifier"
+project_name = "CNN-Chicken-Disease-Classification"
 
 list_of_files = [
     ".github/workflows/.gitkeep",
@@ -21,7 +21,8 @@ list_of_files = [
     "prams.yaml",
     "requirements.txt",
     "setup.py",
-    "research/trials.ipynb"
+    "research/trials.ipynb",
+    "templates/index.html"
 ]
 
 
