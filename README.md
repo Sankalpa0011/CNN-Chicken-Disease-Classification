@@ -91,7 +91,7 @@ open up you local host and port
 
 	
 ## 3. Create ECR repo to store/save docker image
-    - Save the URI: 891612548173.dkr.ecr.eu-north-1.amazonaws.com/chicken
+    - Save the URI: demo>> 566373416292.dkr.ecr.ap-south-1.amazonaws.com/chicken
 
 	
 ## 4. Create EC2 machine (Ubuntu) 
@@ -125,11 +125,11 @@ open up you local host and port
 
     AWS_SECRET_ACCESS_KEY=
 
-    AWS_REGION = us-east-1
+    AWS_REGION = 
 
     AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
 
-    ECR_REPOSITORY_NAME = simple-app
+    ECR_REPOSITORY_NAME = demo>> chicken
 
 
 
@@ -138,7 +138,7 @@ open up you local host and port
 
 ## Save pass:
 
-************************************
+s3cEZKH5yytiVnJ3h+eI3qhhzf9q1vNwEi6+q+WGdd+ACRCZ7JD6
 
 
 ## Run from terminal:
