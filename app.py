@@ -32,15 +32,43 @@ def trainRoute():
     return "Training done successfully"
 
 
+# @app.route('/predict', methods=['POST'])
+# @cross_origin()
+# def predictRoute():
+#     image = request.json["image"]
+#     decodeImage(image, clApp.filename)
+#     result = clApp.classifier.predict()
+#     return jsonify(result)
+
 @app.route('/predict', methods=['POST'])
 @cross_origin()
 def predictRoute():
-    image = request.json["image"]
-    decodeImage(image, clApp.filename)
-    result = clApp.classifier.predict()
-    return jsonify(result)
+    # Check if request contains JSON
+    if not request.is_json:
+        return jsonify({"error": "Content-Type must be application/json"}), 415
+
+    data = request.get_json()
+
+    # Check if "image" is in the request body
+    if data is None or "image" not in data:
+        return jsonify({"error": "No image provided in the request"}), 400
+
+    try:
+        image = data["image"]
+        decodeImage(image, clApp.filename)  # Decode the image to save it locally
+
+        # Run the prediction
+        result = clApp.classifier.predict()
+
+        return jsonify(result), 200  # Return the result as a JSON response
+
+    except Exception as e:
+        # Handle unexpected errors
+        return jsonify({"error": str(e)}), 500
 
 
 if __name__ == "__main__":
     clApp = ClientApp()
-    app.run(host='0.0.0.0', port=8080)
+    # app.run(host='0.0.0.0', port=8080) #local host
+    # app.run(host='0.0.0.0', port=8080) #for AWS
+    app.run(host='0.0.0.0', port=80) #for Azure
